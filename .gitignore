@@ -30,6 +30,6 @@ ipch/
 *.vssscc
 *.bak.*
 *.bak
-node-module/
+node-modules
 #Other
 *.vs
