@@ -1,3 +1,4 @@
+node-modules
 #Visual Studio Files
 [Oo]bj
 [Bb]in
@@ -30,6 +31,5 @@ ipch/
 *.vssscc
 *.bak.*
 *.bak
-node-modules
 #Other
 *.vs
