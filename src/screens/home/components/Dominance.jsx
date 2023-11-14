@@ -26,6 +26,7 @@ const Dominance = (props) => {
           Ưu thế
         </span>
       </div>
+      <div className="flex flex-row">a</div>
     </div>
   );
 };
