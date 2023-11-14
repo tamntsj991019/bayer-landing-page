@@ -1,0 +1,1 @@
+// Hiệu quả phổ rộng
