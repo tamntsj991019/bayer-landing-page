@@ -1,6 +1,7 @@
 // Ưu thế
 import React from "react";
 import { Color } from "../../../utils/contanst";
+import { Banner } from "../../../assets";
 
 const Dominance = (props) => {
   return (
@@ -26,7 +27,52 @@ const Dominance = (props) => {
           Ưu thế
         </span>
       </div>
-      <div className="flex flex-row">a</div>
+      <div className="flex items-center justify-center">
+        <div className="w-auto">
+          <div className="relative mr-[1.56rem] flex items-center justify-center">
+            <img
+              src={Banner}
+              alt="banner"
+              className="h-[23.25rem] w-[41.3125rem]"
+            />
+            <svg
+              className="absolute "
+              xmlns="http://www.w3.org/2000/svg"
+              width="140"
+              height="140"
+              viewBox="0 0 140 140"
+              fill="none"
+            >
+              <path
+                d="M69.9999 117.6C43.6799 117.6 22.3999 96.32 22.3999 70C22.3999 43.68 43.6799 22.4 69.9999 22.4C96.3199 22.4 117.6 43.68 117.6 70C117.6 96.32 96.3199 117.6 69.9999 117.6ZM69.9999 28C46.7599 28 27.9999 46.76 27.9999 70C27.9999 93.24 46.7599 112 69.9999 112C93.2399 112 112 93.24 112 70C112 46.76 93.2399 28 69.9999 28Z"
+                fill="white"
+              />
+              <path
+                d="M56 94.36V45.64L98 70L56 94.36ZM61.6 55.16V84.56L86.8 69.72L61.6 55.16Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className="flex-col border p-[1.5rem]"
+          style={{ borderColor: Color.Primary }}
+        >
+          <div
+            className="text-[1.25rem] font-medium"
+            style={{ color: Color.Primary }}
+          >
+            Những ưu thế VƯỢT TRỘI và KHÁC BIỆT
+          </div>
+          <div
+            className="text-[1.25rem] font-medium"
+            style={{ color: Color.PrimaryText }}
+          >
+            của COUNCIL COMPLETE 300SC
+          </div>
+          <div className="m-y-[1rem] w-full border-t" />
+        </div>
+      </div>
     </div>
   );
 };
