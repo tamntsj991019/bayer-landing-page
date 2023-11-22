@@ -3,6 +3,12 @@ import { Banner } from "../../assets";
 import MenuItem from "./components/MenuItem";
 import useHook from "./hooks/useHook";
 import Dominance from "./components/Dominance";
+import Mechanism from "./components/Mechanism";
+import Convenient from "./components/Convenient";
+import BroadSpectrumEffectiveness from "./components/BroadSpectrumEffectiveness";
+import UnlimitedRiceType from "./components/UnlimitedRiceType";
+import UserManual from "./components/UserManual";
+import NotesWhenUsing from "./components/NotesWhenUsing";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu } = useHook(props);
@@ -27,6 +33,12 @@ const Home = (props) => {
       </div>
 
       <Dominance />
+      <Mechanism />
+      <Convenient />
+      <BroadSpectrumEffectiveness />
+      <UnlimitedRiceType />
+      <UserManual />
+      <NotesWhenUsing />
     </div>
   );
 };
