@@ -4,7 +4,10 @@ import { Color } from "../../../utils/contanst";
 const MenuItem = (props) => {
   const { className, label, selected, onClick = () => {} } = props;
   return (
-    <div className={` flex items-center ${className}`} onClick={onClick}>
+    <div
+      className={`flex cursor-pointer items-center ${className}`}
+      onClick={onClick}
+    >
       {selected && (
         <svg
           className="m-[-9px]"
