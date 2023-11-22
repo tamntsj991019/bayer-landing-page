@@ -2,8 +2,30 @@
 import React from "react";
 import { Color } from "../../../utils/contanst";
 import { Banner } from "../../../assets";
+import { RightArrow } from "../../../components";
 
 const Dominance = (props) => {
+  const listDetail = [
+    {
+      title: "Tiện lợi",
+      content:
+        "Phun tóe khi mặt ruộng có nước 2-3cm mà không cần tháo nước và bơm nước vào.",
+    },
+    {
+      title: "Hiệu quả phổ rộng",
+      content:
+        "Nhiều loại cỏ lúa quan trọng kể cả các loại cỏ khó trị như chác lác, lồng vực, đuôi phụng.",
+    },
+    {
+      title: "Nhẹ công",
+      content: "Giảm 50% công lao động, cách sử dụng đơn giản.",
+    },
+    {
+      title: "Phù hợp với hầu hết các giống lúa",
+      content:
+        "Nhờ công nghệ loang trãi và hòa tan mạnh, nên khi phun tóe thuốc sẽ ít tiếp xúc lúa và kiểm soát cỏ hiệu quả.",
+    },
+  ];
   return (
     <div className="mt-[3.6rem]">
       <div className="flex items-center justify-center">
@@ -24,19 +46,19 @@ const Dominance = (props) => {
           className="text-[3.25rem] font-light"
           style={{ color: Color.PrimaryText }}
         >
-          Ưu thế
+          <b>Ưu thế</b>
         </span>
       </div>
-      <div className="flex items-center justify-center">
-        <div className="w-auto">
-          <div className="relative mr-[1.56rem] flex items-center justify-center">
+      <div className="lg:container-center mt-[1.31rem] grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="flex items-center justify-end">
+          <div className="relative">
             <img
               src={Banner}
               alt="banner"
               className="h-[23.25rem] w-[41.3125rem]"
             />
             <svg
-              className="absolute "
+              className=" absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"
               xmlns="http://www.w3.org/2000/svg"
               width="140"
               height="140"
@@ -54,23 +76,24 @@ const Dominance = (props) => {
             </svg>
           </div>
         </div>
-        <div
-          className="flex-col border p-[1.5rem]"
-          style={{ borderColor: Color.Primary }}
-        >
+        <div>
           <div
-            className="text-[1.25rem] font-medium"
-            style={{ color: Color.Primary }}
+            className="flex-col border p-[1.5rem] text-xl font-medium xl:w-full 2xl:w-1/2"
+            style={{ borderColor: Color.Primary }}
           >
-            Những ưu thế VƯỢT TRỘI và KHÁC BIỆT
+            <div className="" style={{ color: Color.Primary }}>
+              <b>Những ưu thế VƯỢT TRỘI và KHÁC BIỆT</b>
+            </div>
+            <div className="mt-[0.31rem]" style={{ color: Color.PrimaryText }}>
+              <b>của COUNCIL COMPLETE 300SC</b>
+            </div>
+            <div className="my-[1rem] w-full border-t" />
+            <div className="grid grid-cols-1 gap-4">
+              {listDetail?.map((x, i) => (
+                <Detail title={x.title} content={x.content} key={i} />
+              ))}
+            </div>
           </div>
-          <div
-            className="text-[1.25rem] font-medium"
-            style={{ color: Color.PrimaryText }}
-          >
-            của COUNCIL COMPLETE 300SC
-          </div>
-          <div className="m-y-[1rem] w-full border-t" />
         </div>
       </div>
     </div>
@@ -78,3 +101,17 @@ const Dominance = (props) => {
 };
 
 export default Dominance;
+
+const Detail = ({ title, content }) => {
+  return (
+    <div className="" style={{ color: Color.PrimaryText }}>
+      <div className="flex">
+        <RightArrow size={28} color={Color.Primary} />
+        <b className="ms-[0.5rem] text-xl">{title}</b>
+      </div>
+      <div className="flex">
+        <span className="text-justify text-lg font-light">{content}</span>
+      </div>
+    </div>
+  );
+};
