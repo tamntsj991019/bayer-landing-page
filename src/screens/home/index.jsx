@@ -1,14 +1,14 @@
 import React from "react";
 import { Banner } from "../../assets";
-import MenuItem from "./components/MenuItem";
+import MenuItem from "./paths/MenuItem";
 import useHook from "./hooks/useHook";
-import Dominance from "./components/Dominance";
-import Mechanism from "./components/Mechanism";
-import Convenient from "./components/Convenient";
-import BroadSpectrumEffectiveness from "./components/BroadSpectrumEffectiveness";
-import UnlimitedRiceType from "./components/UnlimitedRiceType";
-import UserManual from "./components/UserManual";
-import NotesWhenUsing from "./components/NotesWhenUsing";
+import Dominance from "./paths/Dominance";
+import Mechanism from "./paths/Mechanism";
+import Convenient from "./paths/Convenient";
+import BroadSpectrumEffectiveness from "./paths/BroadSpectrumEffectiveness";
+import UnlimitedRiceType from "./paths/UnlimitedRiceType";
+import UserManual from "./paths/UserManual";
+import NotesWhenUsing from "./paths/NotesWhenUsing";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu } = useHook(props);

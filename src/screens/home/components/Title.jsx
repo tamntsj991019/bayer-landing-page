@@ -3,9 +3,9 @@ import { Color } from "../../../utils/contanst";
 
 const Title = ({ text }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className=" flex items-center justify-center max-md:flex-col">
       <svg
-        className="mr-[1rem]"
+        className="mr-[0.5rem] lg:mr-[1rem]"
         xmlns="http://www.w3.org/2000/svg"
         width="61"
         height="38"
@@ -18,7 +18,7 @@ const Title = ({ text }) => {
         />
       </svg>
       <span
-        className="text-[3.25rem] font-light"
+        className="text-center text-[2rem] font-light  md:flex lg:text-[3.25rem]"
         style={{ color: Color.PrimaryText }}
       >
         <b>{text}</b>

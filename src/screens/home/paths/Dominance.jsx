@@ -3,7 +3,7 @@ import React from "react";
 import { Color } from "../../../utils/contanst";
 import { Banner } from "../../../assets";
 import { RightArrow } from "../../../components";
-import Title from "./Title";
+import Title from "../components/Title";
 
 const Dominance = (props) => {
   const listDetail = [
@@ -30,14 +30,10 @@ const Dominance = (props) => {
   return (
     <div className="mt-[3.6rem]">
       <Title text="Ưu thế" />
-      <div className="lg:container-center mt-[1.31rem] grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="lg:container-center mt-[1.31rem] grid grid-cols-1 gap-6 px-3 md:grid-cols-2">
         <div className="flex items-center justify-end">
           <div className="relative">
-            <img
-              src={Banner}
-              alt="banner"
-              className="h-[23.25rem] w-[41.3125rem]"
-            />
+            <img src={Banner} alt="banner" className=" w-[41.3125rem]" />
             <svg
               className=" absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"
               xmlns="http://www.w3.org/2000/svg"

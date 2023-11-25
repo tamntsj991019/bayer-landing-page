@@ -1,6 +1,6 @@
 // Hiệu quả phổ rộng
 import React from "react";
-import Title from "./Title";
+import Title from "../components/Title";
 
 const BroadSpectrumEffectiveness = (props) => {
   return (

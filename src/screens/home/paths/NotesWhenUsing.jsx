@@ -1,6 +1,6 @@
 // Những lưu ý khi sử dụng
 import React from "react";
-import Title from "./Title";
+import Title from "../components/Title";
 
 const NotesWhenUsing = (props) => {
   return (

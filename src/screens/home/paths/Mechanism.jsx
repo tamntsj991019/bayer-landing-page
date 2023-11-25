@@ -1,6 +1,6 @@
 // Cơ chế
 import React from "react";
-import Title from "./Title";
+import Title from "../components/Title";
 
 const Mechanism = (props) => {
   return (

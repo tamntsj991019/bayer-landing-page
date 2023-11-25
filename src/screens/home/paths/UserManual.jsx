@@ -1,6 +1,6 @@
 // Hướng dẫn sử dụng
 import React from "react";
-import Title from "./Title";
+import Title from "../components/Title";
 import { Color } from "../../../utils/contanst";
 
 const UserManual = (props) => {
