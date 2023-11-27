@@ -55,7 +55,7 @@ const Dominance = (props) => {
         </div>
         <div>
           <div
-            className="flex-col border p-[1.5rem] text-xl font-medium xl:w-full 2xl:w-1/2"
+            className="flex-col border p-[1.5rem] text-xl font-medium max-sm:text-base xl:w-full 2xl:w-1/2"
             style={{ borderColor: Color.Primary }}
           >
             <div className="" style={{ color: Color.Primary }}>
@@ -84,10 +84,12 @@ const Detail = ({ title, content }) => {
     <div className="" style={{ color: Color.PrimaryText }}>
       <div className="flex">
         <RightArrow size={28} color={Color.Primary} />
-        <b className="ms-[0.5rem] text-xl">{title}</b>
+        <b className="ms-[0.5rem] text-xl max-sm:text-base">{title}</b>
       </div>
       <div className="flex">
-        <span className="text-justify text-lg font-light">{content}</span>
+        <span className="text-justify text-lg  font-light max-sm:text-sm">
+          {content}
+        </span>
       </div>
     </div>
   );
