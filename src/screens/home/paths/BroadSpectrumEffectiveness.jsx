@@ -2,6 +2,7 @@
 import React from "react";
 import Title from "../components/Title";
 import { BSE_1, BSE_2, BSE_3 } from "../imgs";
+import { Color } from "../../../utils/contanst";
 
 const BroadSpectrumEffectiveness = (props) => {
   const translates = [
@@ -61,8 +62,20 @@ const BroadSpectrumEffectiveness = (props) => {
             <div className="-ml-[3vw] w-[25vw] [clip-path:polygon(16%_0%,100%_0%,84%_100%,0%_100%)]">
               <img src={BSE_2} alt="" className="h-[15vw] w-[25vw]" />
             </div>
-            <div className="-ml-[3vw] w-[35vw] [clip-path:polygon(12%_0%,100%_0%,100%_100%,0%_100%)]">
+            <div className="relative -ml-[3vw] w-[35vw] [clip-path:polygon(11%_0%,100%_0%,100%_100%,0%_100%)] ">
               <img src={BSE_3} alt="" className="h-[15vw] w-[35vw]" />
+              <div className="absolute right-0 top-0 flex w-[100%] justify-end text-right font-bold text-white">
+                <div className="h-[15vw] w-[58%] border-e-2 text-center">
+                  <div className={`bg-[${Color.GreenPrimary}]  py-2`}>
+                    COUNCIL® COMPLETE 300 SC
+                  </div>
+                </div>
+                <div className="h-[15vw] w-[35%] border-s-2 text-center">
+                  <div className={`bg-[${Color.OrangePrimary}] py-2`}>
+                    THUỐC KHÁC
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
