@@ -9,6 +9,7 @@ import BroadSpectrumEffectiveness from "./paths/BroadSpectrumEffectiveness";
 import UnlimitedRiceType from "./paths/UnlimitedRiceType";
 import UserManual from "./paths/UserManual";
 import NotesWhenUsing from "./paths/NotesWhenUsing";
+import "./styles/styles.scss";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu } = useHook(props);
@@ -17,7 +18,7 @@ const Home = (props) => {
     <div className="w-full">
       <img src={Banner} alt="banner" className="w-full" />
 
-      <div className="relative mt-4 flex items-center py-3.5">
+      <div className=" mt-4 flex items-center py-3.5">
         <div className="h-[3.75rem] w-full bg-[#443247]"></div>
         <div className="absolute right-[9.05rem] flex items-center">
           {listMenu?.map((x, i) => (
