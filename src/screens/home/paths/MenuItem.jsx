@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Color } from "../../../utils/contanst";
-import "../styles/styles.scss";
 
 const MenuItem = (props) => {
   const { className, label, selected, onClick = () => {} } = props;

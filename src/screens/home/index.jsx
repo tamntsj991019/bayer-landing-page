@@ -9,7 +9,6 @@ import BroadSpectrumEffectiveness from "./paths/BroadSpectrumEffectiveness";
 import UnlimitedRiceType from "./paths/UnlimitedRiceType";
 import UserManual from "./paths/UserManual";
 import NotesWhenUsing from "./paths/NotesWhenUsing";
-import "./styles/styles.scss";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu } = useHook(props);
