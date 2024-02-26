@@ -54,7 +54,7 @@ const Home = (props) => {
     <div className="w-full ">
       <Helmet>
         <title>THE TITLE CUSTOM</title>
-        <meta property="description" content="description" />
+        <meta property="description" content="description test" />
         <meta property="key" content="key1,key2" />
       </Helmet>
       <img src={Banner} alt="banner" className="w-full" />
