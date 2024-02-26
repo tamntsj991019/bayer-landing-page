@@ -9,6 +9,7 @@ import BroadSpectrumEffectiveness from "./paths/BroadSpectrumEffectiveness";
 import UnlimitedRiceType from "./paths/UnlimitedRiceType";
 import UserManual from "./paths/UserManual";
 import NotesWhenUsing from "./paths/NotesWhenUsing";
+import { Helmet } from "react-helmet";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu, constMenu } = useHook(props);
@@ -51,6 +52,11 @@ const Home = (props) => {
 
   return (
     <div className="w-full ">
+      <Helmet>
+        <title>THE TITLE CUSTOM</title>
+        <meta property="description" content="description" />
+        <meta property="key" content="key1,key2" />
+      </Helmet>
       <img src={Banner} alt="banner" className="w-full" />
       <div className="sticky top-0 z-[999] mt-4 flex items-center bg-white py-3.5">
         <div className="h-[3.75rem] w-full bg-[#443247]"></div>
