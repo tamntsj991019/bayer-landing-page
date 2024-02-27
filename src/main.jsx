@@ -1,10 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./layout/index.jsx";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+root.render(
+  <BrowserRouter basename={baseUrl}>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
 );
