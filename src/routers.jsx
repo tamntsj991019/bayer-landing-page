@@ -4,7 +4,7 @@ import { Home, Page2 } from "./screens";
 
 export const EPath = {
   Home: "/",
-  Page2: "/p2",
+  Page2: "/page2",
 };
 
 export const AppRoutes = [
@@ -19,7 +19,7 @@ export const AppRoutes = [
   {
     key: EPath.Page2,
     path: EPath.Page2,
-    label: "Page2",
+    label: "Page 2",
     element: <Page2 />,
     visible: false,
   },
