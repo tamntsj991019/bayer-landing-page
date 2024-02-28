@@ -1,10 +1,9 @@
-// import { Home } from "../screens";
-
-import { Home, Page2 } from "./screens";
+import { Home } from "./screens";
+import Page2 from "./screens/page2";
 
 export const EPath = {
   Home: "/",
-  Page2: "/page2",
+  P2: "/p2",
 };
 
 export const AppRoutes = [
@@ -16,10 +15,11 @@ export const AppRoutes = [
     element: <Home />,
     visible: false,
   },
+
   {
-    key: EPath.Page2,
-    path: EPath.Page2,
-    label: "Page 2",
+    key: EPath.P2,
+    path: EPath.P2,
+    label: "P 2",
     element: <Page2 />,
     visible: false,
   },
