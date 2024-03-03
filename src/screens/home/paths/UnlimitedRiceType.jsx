@@ -7,7 +7,7 @@ const UnlimitedRiceType = (props) => {
   return (
     <div className="mt-[3.6rem]">
       <Title text="Không giới hạn giống lúa sử dụng" />
-      <div className="mt-[2rem] grid grid-cols-1 gap-8 px-3 lg:grid-cols-2 xl:grid-cols-6">
+      <div className="mt-[2rem] grid grid-cols-1 gap-5 px-3 lg:grid-cols-2 xl:grid-cols-6">
         <div className="hidden xl:inline"></div>
         <div className="col-span-1 xl:col-span-2">
           <img src={URT_1} alt="URT_1" className="w-full" />
