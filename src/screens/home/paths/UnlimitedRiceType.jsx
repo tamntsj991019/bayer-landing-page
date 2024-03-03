@@ -9,7 +9,14 @@ const UnlimitedRiceType = (props) => {
       <Title text="Không giới hạn giống lúa sử dụng" />
       <div className="mt-[2rem] grid grid-cols-1 gap-8 px-3 lg:grid-cols-2 xl:grid-cols-6">
         <div className="hidden xl:inline"></div>
-        <Block
+        <div className="col-span-1 xl:col-span-2">
+          <img src={URT_1} alt="URT_1" className="w-full" />
+        </div>
+        <div className="col-span-1 xl:col-span-2">
+          <img src={URT_2} alt="URT_2" className="w-full" />
+        </div>
+        <div className="hidden xl:inline"></div>
+        {/* <Block
           className="col-span-1 xl:col-span-2"
           imgSrc={URT_1}
           label="COUNCIL® COMPLETE 300 SC"
@@ -83,8 +90,7 @@ const UnlimitedRiceType = (props) => {
               Thơm 8.
             </div>
           </div>
-        </Block>
-        <div className="hidden xl:inline"></div>
+        </Block> */}
       </div>
     </div>
   );
@@ -92,28 +98,28 @@ const UnlimitedRiceType = (props) => {
 
 export default UnlimitedRiceType;
 
-const Block = ({ className, imgSrc, label, labelClassName, children }) => {
-  const getLabelClassName = () =>
-    `${labelClassName || ""} px-[1.8rem] py-[0.5rem] text-white`;
+// const Block = ({ className, imgSrc, label, labelClassName, children }) => {
+//   const getLabelClassName = () =>
+//     `${labelClassName || ""} px-[1.8rem] py-[0.5rem] text-white`;
 
-  return (
-    <div className={className}>
-      <div className="relative">
-        <img
-          src={imgSrc}
-          alt={label}
-          className="h-[350px]"
-          width="100%"
-          style={{
-            objectFit: "cover",
-          }}
-        />
-        <div className="absolute left-0 top-0 h-[300px]">{children}</div>
-      </div>
+//   return (
+//     <div className={className}>
+//       <div className="relative">
+//         <img
+//           src={imgSrc}
+//           alt={label}
+//           className="h-[350px]"
+//           width="100%"
+//           style={{
+//             objectFit: "cover",
+//           }}
+//         />
+//         <div className="absolute left-0 top-0 h-[300px]">{children}</div>
+//       </div>
 
-      <div className={`mt-[1.2rem] flex justify-center text-center`}>
-        <b className={getLabelClassName()}>{label}</b>
-      </div>
-    </div>
-  );
-};
+//       <div className={`mt-[1.2rem] flex justify-center text-center`}>
+//         <b className={getLabelClassName()}>{label}</b>
+//       </div>
+//     </div>
+//   );
+// };

@@ -2,8 +2,14 @@ import React from "react";
 import { Color } from "../../utils/contanst";
 
 const Footer = (props) => {
+  //#624963 -  #51455f
   return (
-    <div className="mt-5 bg-black pb-5 pt-20 text-white">
+    <div
+      className="mt-5 pb-5 pt-20 text-white"
+      style={{
+        background: `conic-gradient(  #624963 0deg 88deg, #51455f 88deg 180deg,  #51455f 180deg 268deg, #624963 268deg 360deg)`,
+      }}
+    >
       <div className="grid grid-cols-1 gap-4 px-10 sm:grid-cols-2 md:grid-cols-4 lg:px-28 2xl:px-56">
         <div className="mb-5">
           <MenuFooter
@@ -40,7 +46,6 @@ const Footer = (props) => {
           </MenuFooter>
         </div>
       </div>
-
       <div className="mt-10  grid  grid-cols-1 justify-center">
         <span className="text-center text-[20px] sm:text-[24px] xl:text-[26px]">
           Follow Us
@@ -54,7 +59,6 @@ const Footer = (props) => {
           <SocialIconFooter iconFA="fa-solid fa-wifi" />
         </div>
       </div>
-
       <small className="mt-16 grid grid-cols-1 px-10 sm:grid-cols-4 lg:px-28 2xl:px-56">
         <div>
           <span>Copyright</span>
@@ -90,7 +94,7 @@ const MenuFooter = ({ title, items, children }) => {
         : items?.map((x, i) => {
             return (
               <span className="flex" key={i}>
-                <i className="fa-solid fa-angle-right me-2"></i>
+                <i className="fa-solid fa-angle-right me-2" />
                 <a href={x.link}>{x.label}</a>
               </span>
             );
