@@ -7,15 +7,23 @@ const UnlimitedRiceType = (props) => {
   return (
     <div className="mt-[3.6rem]">
       <Title text="Không giới hạn giống lúa sử dụng" />
-      <div className="mt-[2rem] grid grid-cols-1 gap-5 px-3 lg:grid-cols-2 xl:grid-cols-6">
-        <div className="hidden xl:inline"></div>
-        <div className="col-span-1 xl:col-span-2">
+      <div className="mt-[2rem] grid grid-cols-1 gap-5 px-3 sm:grid-cols-2 ">
+        <div className="flex justify-end">
+          <img src={URT_1} alt="URT_1" />
+        </div>
+        <div>
+          <img src={URT_2} alt="URT_2" />
+        </div>
+        {/* <div className="hidden  lg:inline"></div>
+        <div className="hidden  xl:inline"></div>
+        <div className="col-span-1  md:col-span-2 xl:col-span-1">
           <img src={URT_1} alt="URT_1" className="w-full" />
         </div>
-        <div className="col-span-1 xl:col-span-2">
+        <div className="col-span-1 md:col-span-2 xl:col-span-1">
           <img src={URT_2} alt="URT_2" className="w-full" />
         </div>
-        <div className="hidden xl:inline"></div>
+        <div className="hidden  lg:inline"></div>
+        <div className="hidden  xl:inline"></div> */}
         {/* <Block
           className="col-span-1 xl:col-span-2"
           imgSrc={URT_1}
