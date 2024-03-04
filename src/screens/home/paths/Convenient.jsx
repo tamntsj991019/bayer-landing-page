@@ -11,7 +11,7 @@ const Convenient = (props) => {
       <Title text="Tiện lợi" />
       <div className="px-3">
         <div
-          className="mb-[2.2rem] mt-[0.5rem] px-3 text-center text-[1.5rem] max-sm:text-sm"
+          className="mb-[2.2rem] mt-[0.5rem] text-center text-[1.5rem] max-sm:text-sm sm:px-20"
           style={{ color: Color.PrimaryText }}
         >
           <b className="mr-[0.5rem]">Phun tóe</b>
@@ -20,7 +20,7 @@ const Convenient = (props) => {
             nước vào. Giảm 50% thời gian phun và 50% lượng nước phun.
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-4 lg:grid-cols-6 lg:px-20">
+        {/* <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-4 lg:grid-cols-6 lg:px-20">
           <div className="hidden lg:inline"></div>
           <div className="md:col-span-2">
             <img
@@ -51,6 +51,28 @@ const Convenient = (props) => {
             />
           </div>
           <div className="hidden lg:inline"></div>
+        </div> */}
+      </div>
+
+      <div className="grid w-full grid-cols-1 gap-5 px-3 sm:w-auto sm:grid-cols-2 sm:px-0">
+        <div className="flex w-full justify-center sm:w-auto sm:justify-end">
+          <div>
+            <img
+              src={Convenient_PhunToePng}
+              alt="Convenient_PhunToePng"
+              className="w-full sm:w-auto"
+            />
+          </div>
+        </div>
+
+        <div className="flex w-full justify-center  sm:w-auto sm:justify-start">
+          <div>
+            <img
+              src={Convenient_PhunThuongPng}
+              alt="Convenient_PhunThuongPng"
+              className="w-full sm:w-auto"
+            />
+          </div>
         </div>
       </div>
     </div>
