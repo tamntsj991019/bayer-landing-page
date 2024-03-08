@@ -35,7 +35,7 @@ const TableGuild = () => {
   const cssTdOdd = `${cssTd} bg-[#F0EDF0]`;
   return (
     <table className="w-[1150px]">
-      <thead className="h-[90px] text-white">
+      <thead className="min-h-[90px] text-white">
         <tr>
           <th className="w-[154px] p-0">
             <div>
