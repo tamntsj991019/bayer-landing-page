@@ -32,7 +32,7 @@ const Dominance = (props) => {
     <div className="mt-[3.6rem]">
       <Title text="Ưu thế" />
       <div className="mt-[21px] flex items-center justify-center gap-[25px] px-3 max-lg:flex-col">
-        <div className="h-auto w-auto md:h-[372px] md:w-[661px]">
+        <div className="h-auto w-auto sm:h-[372px] sm:w-[661px]">
           <Video />
         </div>
         <div
