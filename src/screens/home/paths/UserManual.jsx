@@ -2,6 +2,7 @@
 import React from "react";
 import Title from "../components/Title";
 import { Color } from "../../../utils/contanst";
+import Video from "../components/Video";
 
 const UserManual = (props) => {
   return (
@@ -14,8 +15,11 @@ const UserManual = (props) => {
         <b>TÊN SẢN PHẨM: COUNCIL® COMPLETE 300 SC</b>
       </div>
 
-      <div className="mt-[32px] flex justify-center">
+      <div className="mt-[32px] flex flex-col items-center justify-center">
         <TableGuild />
+        <div className="mt-[47px] h-auto w-auto md:h-[428px] md:w-[760px]">
+          <Video />
+        </div>
       </div>
     </div>
   );

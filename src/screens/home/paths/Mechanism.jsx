@@ -40,7 +40,7 @@ const Mechanism = (props) => {
             {[
               ...listItems.map((x, i) => (
                 // <img src={x.SrcImg_L} alt={`srcImg-L-${i}`} />
-                <div>
+                <div key={`div-Carousel-Item-${i}`}>
                   <CarouselItem
                     item={x}
                     index={i}
