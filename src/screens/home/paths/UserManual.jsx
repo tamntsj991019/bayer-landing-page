@@ -15,7 +15,7 @@ const UserManual = (props) => {
         <b>TÊN SẢN PHẨM: COUNCIL® COMPLETE 300 SC</b>
       </div>
 
-      <div className="mt-[32px] flex flex-col items-center justify-center">
+      <div className="mb-[4.25rem] mt-[32px] flex flex-col items-center justify-center">
         <TableGuild />
         <div className="mt-[47px] h-auto w-auto md:h-[428px] md:w-[760px]">
           <Video />

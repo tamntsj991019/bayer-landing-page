@@ -21,7 +21,7 @@ const Video = ({ srcVid = "https://www.youtube.com/embed/VANzpwmriKI" }) => {
         }}
       />
       <svg
-        className={`absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 ${isHoverImg ? "scale-150" : "scale-100"}`}
+        className={`absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 ${isHoverImg ? "scale-[1.6]" : "scale-[1]"}`}
         xmlns="http://www.w3.org/2000/svg"
         width="140"
         height="140"

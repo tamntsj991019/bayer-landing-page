@@ -31,12 +31,12 @@ const Dominance = (props) => {
   return (
     <div className="mt-[3.6rem]">
       <Title text="Ưu thế" />
-      <div className="mt-[21px] flex items-center justify-center gap-[25px] px-3 max-lg:flex-col">
-        <div className="h-auto w-auto sm:h-[372px] sm:w-[661px]">
+      <div className="mt-[1.31rem] flex items-center justify-center gap-[1.56rem] px-3 max-lg:flex-col">
+        <div className="h-auto w-auto sm:h-[23.25rem] sm:w-[41.3125rem]">
           <Video />
         </div>
         <div
-          className="w-auto flex-col border p-[1.5rem] text-xl font-medium max-sm:text-base sm:w-[466px]"
+          className="w-auto flex-col border p-[1.5rem] text-xl font-medium max-sm:text-base sm:w-[29.125rem]"
           style={{ borderColor: Color.Primary }}
         >
           <div className="" style={{ color: Color.Primary }}>
