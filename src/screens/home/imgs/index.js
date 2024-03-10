@@ -14,7 +14,11 @@ import URT_1 from "./URT_1.png";
 import URT_2 from "./URT_2.png";
 
 import NWU_1 from "./NWU_1.png";
+import NWU_1a_L from "./NWU_1a_L.png";
+import NWU_1a_R from "./NWU_1a_R.png";
 import NWU_2 from "./NWU_2.png";
+import NWU_2a_L from "./NWU_2a_L.png";
+import NWU_2a_R from "./NWU_2a_R.png";
 import NWU_3 from "./NWU_3.png";
 import NWU_4 from "./NWU_4.png";
 import NWU_5 from "./NWU_5.png";
@@ -33,6 +37,10 @@ export {
   URT_1,
   URT_2,
   NWU_1,
+  NWU_1a_L,
+  NWU_1a_R,
+  NWU_2a_L,
+  NWU_2a_R,
   NWU_2,
   NWU_3,
   NWU_4,

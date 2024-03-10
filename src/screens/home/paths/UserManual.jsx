@@ -35,7 +35,7 @@ const TableGuild = () => {
   const cssChild1 = `${cssChild} bg-[#DDD2DB]`;
   const cssChild2 = `${cssChild} bg-[#F0EDF0]`;
   return (
-    <div className="flex max-xl:flex-wrap">
+    <div className="flex justify-center max-xl:flex-wrap">
       <TableCol hLabel="Cây trồng" hBgColor1="#2B6638">
         <div className={`w-[9.625rem] ${cssChild1}`}>
           <span>Lúa sạ thẳng</span>
@@ -143,7 +143,7 @@ const TableGuild = () => {
 const TableCol = ({ children, hLabel, hBgColor1, hBgColor2 }) => {
   return (
     <div className="m-0 flex-col p-0 max-xl:w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-      <div className="m-0 h-[5.625rem] p-0 max-lg:h-[3.6rem]">
+      <div className="m-0 h-[5.625rem] p-0 max-sm:h-[3.6rem]">
         <div
           className={`m-0 h-full w-full p-0`}
           style={{
