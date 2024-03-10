@@ -35,7 +35,7 @@ const Mechanism = (props) => {
       </b>
       <div className="flex justify-center">
         <div className="max-w-lg">
-          <Carousel autoSlide>
+          <Carousel>
             {/* {[...lstImg.map((s) => <img src={s} />)]} */}
             {[
               ...listItems.map((x, i) => (

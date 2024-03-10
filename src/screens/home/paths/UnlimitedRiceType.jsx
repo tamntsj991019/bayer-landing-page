@@ -41,7 +41,7 @@ const FrameLeft = ({ srcImg, text, label }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div
-        className={`relative w-[35.25rem] overflow-hidden border ${height}`}
+        className={`relative w-full overflow-hidden border md:w-[35.25rem] ${height}`}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
@@ -114,7 +114,7 @@ const FrameRight = ({ srcImg, text, label }) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div
-        className={`relative w-[35.25rem] overflow-hidden border ${height}`}
+        className={`relative w-full overflow-hidden border md:w-[35.25rem] ${height}`}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
