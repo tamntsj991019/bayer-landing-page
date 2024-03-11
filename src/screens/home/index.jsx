@@ -9,6 +9,9 @@ import BroadSpectrumEffectiveness from "./paths/BroadSpectrumEffectiveness";
 import UnlimitedRiceType from "./paths/UnlimitedRiceType";
 import UserManual from "./paths/UserManual";
 import NotesWhenUsing from "./paths/NotesWhenUsing";
+import { Color } from "../../utils/contanst";
+import MenuItem_Lg from "./paths/MenuItem_Lg";
+import MenuItemDropdown from "./paths/MenuItemDropdown";
 
 const Home = (props) => {
   const { setSelectedMenu, listMenu, selectedMenu, constMenu } = useHook(props);
@@ -53,13 +56,32 @@ const Home = (props) => {
     <div className="w-full ">
       <img src={Banner} alt="banner" className="w-full" />
       <div className="sticky top-0 z-[999] mt-4 flex items-center bg-white py-3.5">
-        <div className="h-[3.75rem] w-full bg-[#443247]"></div>
-        <div className="absolute right-[9.05rem] flex items-center">
+        <div className="flex h-[3.75rem] w-full justify-center gap-[1.688rem] bg-[#443247] max-md:justify-end">
+          {listMenu?.map((x, i) => (
+            <MenuItem_Lg
+              label={x.label}
+              key={i}
+              selected={selectedMenu == x.value}
+              onClick={() => onClickMenuItem(x.value)}
+            />
+          ))}
+          <MenuItemDropdown>
+            {listMenu?.map((x, i) => (
+              <div
+                className="text-white"
+                key={i}
+                onClick={() => onClickMenuItem(x.value)}
+              >
+                {x.label}
+              </div>
+            ))}
+          </MenuItemDropdown>
+        </div>
+        <div className="absolute flex items-center justify-center gap-[1.688rem] max-xl:w-full max-lg:hidden xl:right-[9.05rem]">
           {listMenu?.map((x, i) => (
             <MenuItem
               label={x.label}
               key={i}
-              className="ml-[27px]"
               selected={selectedMenu == x.value}
               onClick={() => onClickMenuItem(x.value)}
             />
