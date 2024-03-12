@@ -2,114 +2,106 @@ import React from "react";
 import { Color } from "../../utils/contanst";
 
 const Footer = (props) => {
-  //#624963 -  #51455f
   return (
-    <div
-      className="mt-5 pb-5 pt-20 text-white"
-      style={{
-        background: `conic-gradient(  #624963 0deg 88deg, #51455f 88deg 180deg,  #51455f 180deg 268deg, #624963 268deg 360deg)`,
-      }}
-    >
-      <div className="grid grid-cols-1 gap-4 px-10 sm:grid-cols-2 md:grid-cols-4 lg:px-28 2xl:px-56">
-        <div className="mb-5">
-          <MenuFooter
-            title="Our Business"
-            items={[
-              { link: undefined, label: "Phamaceuticals" },
-              { link: undefined, label: "Consumer Health" },
-              { link: undefined, label: "Crop Science" },
-              { link: undefined, label: "Out Products" },
-              { link: undefined, label: "Bayer Worldwide" },
-            ]}
-          />
-        </div>
-        <div className="mb-5">
-          <MenuFooter
-            title="Magagines & Reports"
-            items={[{ link: undefined, label: "News and Stories" }]}
-          />
-        </div>
-        <div className="mb-5">
-          <MenuFooter
-            title="Stay Tuned"
-            items={[
-              { link: undefined, label: "Jobs Postings" },
-              { link: undefined, label: "Latest News" },
-              { link: undefined, label: "Newsletter" },
-              { link: undefined, label: "Bayer Share Price" },
-            ]}
-          />
-        </div>
-        <div className="mb-5">
-          <MenuFooter title="Get in Touch">
-            <span>Do you have any queries or comments?</span>
-          </MenuFooter>
+    <div className="mt-[4.06rem] bg-[#624963] text-white">
+      <div className="flex justify-center px-[70px] pb-5">
+        <div className="container grid grid-cols-1 pt-[58px] md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col px-3">
+            <span className="mb-4 text-[26px]">Liên hệ chúng tôi</span>
+            <MenuItemFooter iconFa="fa-solid fa-phone" text="1800 1775" />
+            <MenuItemFooter
+              iconFa="fa-solid fa-location-dot"
+              text="Tòa nhà CentrePoint, Lầu 3, 106 Nguyễn Văn Trỗi, phường 8, quận Phú Nhuận, TP. Hồ Chí Minh"
+            />
+          </div>
+          <div className="flex flex-col px-3">
+            <span className="mb-4 text-[26px]">Hỗ trợ nhà nông</span>
+            <MenuItemFooter
+              iconFa="fa-solid fa-angle-right"
+              text="Đồng hành cùng nông gia"
+              url="https://bayerkhoahoccaytrong.com/dong-hanh-ng/"
+            />
+          </div>
+          <div className="flex flex-col px-3">
+            <span className="mb-4 text-[26px]">Truy cập nhanh</span>
+            <MenuItemFooter
+              iconFa="fa-solid fa-angle-right"
+              text="Tin nhà nông"
+              url="https://bayerkhoahoccaytrong.com/ban-tin-nha-nong/"
+            />
+            <MenuItemFooter
+              iconFa="fa-solid fa-angle-right"
+              text="Thư viện"
+              url="https://bayerkhoahoccaytrong.com/thu-vien/"
+            />
+          </div>
         </div>
       </div>
-      <div className="mt-10  grid  grid-cols-1 justify-center">
-        <span className="text-center text-[20px] sm:text-[24px] xl:text-[26px]">
-          Follow Us
-        </span>
-        <div className="mt-3 flex justify-center gap-4">
-          <SocialIconFooter iconFA="fa-brands fa-facebook-f" />
-          <SocialIconFooter iconFA="fa-brands fa-x-twitter" />
-          <SocialIconFooter iconFA="fa-brands fa-youtube" />
-          <SocialIconFooter iconFA="fa-brands fa-linkedin-in" />
-          <SocialIconFooter iconFA="fa-brands fa-instagram" />
-          <SocialIconFooter iconFA="fa-solid fa-wifi" />
+      <div className="bg-[#624963]">
+        <div
+          className=" flex justify-center bg-[#51455f] px-[70px] pt-5"
+          style={{
+            clipPath: "polygon(0 20%, 100% 0, 100% 100%, 0% 100%)",
+          }}
+        >
+          <div className="container">
+            <div className="mt-10 flex flex-col">
+              <span className="mb-4 text-center text-[26px]">Follow Us</span>
+              <div className="flex justify-center">
+                <SocialIconFooter
+                  iconFA="fa-brands fa-facebook-f"
+                  url="https://www.facebook.com/Bayer4CropsVN"
+                />
+                <SocialIconFooter
+                  iconFA="fa-brands fa-youtube"
+                  url="https://www.youtube.com/user/bayercropscienceviet"
+                />
+              </div>
+            </div>
+            <small className="mb-4 mt-9 flex w-full items-center border-t border-[#616161] pb-[18px] pt-[40px]">
+              <span>Copyright</span>
+              <i className="fa-regular fa-copyright mx-1.5"></i>
+            </small>
+          </div>
         </div>
       </div>
-      <small className="mt-16 grid grid-cols-1 px-10 sm:grid-cols-4 lg:px-28 2xl:px-56">
-        <div>
-          <span>Copyright</span>
-          <i className="fa-regular fa-copyright mx-1.5"></i>
-          <span>Bayer AG</span>
-        </div>
-        <div className="text-center sm:col-span-2">
-          <span className="me-5">Global:</span>
-          <span>Conditions of Use</span>
-          <span className="mx-1">/</span>
-          <span>Privacy Statement</span>
-          <span className="mx-1">/</span>
-          <span>Cookie Settings</span>
-          <span className="mx-1">/</span>
-          <span>Imprint</span>
-        </div>
-        <div className="text-end">Sitemap</div>
-      </small>
     </div>
   );
 };
 
 export default Footer;
 
-const MenuFooter = ({ title, items, children }) => {
+const MenuItemFooter = ({ iconFa, text, url }) => {
   return (
-    <div className="grid grid-cols-1">
-      <span className="h-[80px] text-[20px] sm:text-[24px] xl:text-[26px]">
-        {title}
+    <div className="flex pb-4">
+      <i className={`${iconFa} mr-2`} />
+
+      <span className="text-[15px]">
+        {url ? (
+          <a href={url} target="-blank" className="cursor-pointer">
+            {text}
+          </a>
+        ) : (
+          text
+        )}
       </span>
-      {children
-        ? children
-        : items?.map((x, i) => {
-            return (
-              <span className="flex" key={i}>
-                <i className="fa-solid fa-angle-right me-2" />
-                <a href={x.link}>{x.label}</a>
-              </span>
-            );
-          })}
     </div>
   );
 };
 
-const SocialIconFooter = ({ iconFA }) => {
+const SocialIconFooter = ({ iconFA, url }) => {
   return (
     <div
       style={{ backgroundColor: Color.PinkPrimary_Menu }}
-      className="flex h-[45px] w-[45px] items-center justify-center text-white sm:h-[50px] sm:w-[50px]"
+      className="mx-[10px] flex h-[40px] w-[40px] items-center justify-center pt-1 text-white"
     >
-      <i className={`${iconFA}  mt-1 text-[20px]`} />
+      {url ? (
+        <a href={url} target="_blank">
+          <i className={`${iconFA} text-[20px]`} />
+        </a>
+      ) : (
+        <i className={`${iconFA} text-[20px]`} />
+      )}
     </div>
   );
 };
