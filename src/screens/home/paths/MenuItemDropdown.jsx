@@ -1,18 +1,33 @@
-import React, { Children, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Color } from "../../../utils/contanst";
 
 const MenuItemDropdown = (props) => {
-  const { children, onClick } = props;
-  const refMD = useRef();
+  const { listMenu, onClickMenuItem } = props;
   const commonStyle = {
     transition: "all .25s linear",
   };
   const [hover, setHover] = useState(false);
+  const [hoverMenu, setHoverMenu] = useState(-1);
   const [openMenu, setOpenMenu] = useState(false);
-  const [cssBottom, setCssBottom] = useState("");
-  useEffect(() => {
-    setCssBottom(``);
-  }, [refMD?.current]);
+
+  const clickOutsideRef = useRef(null);
+  const useClickOutside = (ref) => {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setHover(false);
+          setHoverMenu(-1);
+          setOpenMenu(false);
+        }
+      }
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+  useClickOutside(clickOutsideRef);
+
   return (
     <div className="relative hidden h-full w-[3.75rem] items-center justify-center text-[22px] max-md:flex">
       <div
@@ -34,17 +49,34 @@ const MenuItemDropdown = (props) => {
         />
       </div>
       <div
-        ref={refMD}
-        className={`absolute right-2 w-[11rem] overflow-hidden rounded-lg border-2 border-[#443247] bg-white px-3 pb-2 pt-1`}
+        ref={clickOutsideRef}
+        className={`absolute right-2 flex flex-col items-center justify-center gap-1 overflow-hidden rounded-lg bg-[#443247] text-center text-[18px] text-white shadow-lg`}
         style={{
           ...commonStyle,
-          bottom: -refMD?.current?.clientHeight - 16,
-          // height: openMenu ? "auto" : 0,
+          bottom: openMenu ? "-13rem" : 0,
+          width: openMenu ? "10rem" : 0,
+          height: openMenu ? "12rem" : 0,
           padding: openMenu ? "" : 0,
-          display: openMenu ? "inline" : "none",
+          opacity: openMenu ? 1 : 0,
+          visibility: openMenu ? "visible" : "hidden",
         }}
       >
-        {children}
+        {listMenu?.map((x, i) => (
+          <div
+            className="w-full text-nowrap py-0.5"
+            key={i}
+            onClick={() => onClickMenuItem(x.value)}
+            onMouseEnter={() => setHoverMenu(i)}
+            onMouseLeave={() => setHoverMenu(i)}
+            style={{
+              ...commonStyle,
+              backgroundColor: hoverMenu == i ? Color.GreenPrimary_Menu : "",
+              cursor: "pointer",
+            }}
+          >
+            {x.label}
+          </div>
+        ))}
       </div>
     </div>
   );

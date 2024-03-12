@@ -56,7 +56,7 @@ const Home = (props) => {
     <div className="w-full ">
       <img src={Banner} alt="banner" className="w-full" />
       <div className="sticky top-0 z-[999] mt-4 flex items-center bg-white py-3.5">
-        <div className="flex h-[3.75rem] w-full justify-center gap-[1.688rem] bg-[#443247] max-md:justify-end">
+        <div className="flex h-[3.75rem] w-full justify-center gap-[1.688rem] bg-[#443247] max-lg:flex max-md:hidden max-md:justify-end">
           {listMenu?.map((x, i) => (
             <MenuItem_Lg
               label={x.label}
@@ -65,17 +65,6 @@ const Home = (props) => {
               onClick={() => onClickMenuItem(x.value)}
             />
           ))}
-          <MenuItemDropdown>
-            {listMenu?.map((x, i) => (
-              <div
-                className="text-white"
-                key={i}
-                onClick={() => onClickMenuItem(x.value)}
-              >
-                {x.label}
-              </div>
-            ))}
-          </MenuItemDropdown>
         </div>
         <div className="absolute flex items-center justify-center gap-[1.688rem] max-xl:w-full max-lg:hidden xl:right-[9.05rem]">
           {listMenu?.map((x, i) => (
@@ -86,6 +75,13 @@ const Home = (props) => {
               onClick={() => onClickMenuItem(x.value)}
             />
           ))}
+        </div>
+
+        <div className="-my-4 hidden h-full w-full justify-end bg-[#443247] py-3  max-md:flex">
+          <MenuItemDropdown
+            listMenu={listMenu}
+            onClickMenuItem={onClickMenuItem}
+          />
         </div>
       </div>
 
