@@ -10,6 +10,9 @@ import {
   Mechanism_2_R,
 } from "../imgs";
 
+const trans = {
+  transition: "all .3s linear",
+};
 const Mechanism = (props) => {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
@@ -24,105 +27,59 @@ const Mechanism = (props) => {
     },
   ];
   const lstImg = [Mechanism_1_L, Mechanism_1_R, Mechanism_2_L, Mechanism_2_R];
+
+  const prev = () => {
+    if (currentCarouselIndex == 0) {
+      setCurrentCarouselIndex(listItems.length - 1);
+    } else {
+      setCurrentCarouselIndex(currentCarouselIndex - 1);
+    }
+  };
+  const next = () => {
+    if (currentCarouselIndex == listItems.length - 1) {
+      setCurrentCarouselIndex(0);
+    } else {
+      setCurrentCarouselIndex(currentCarouselIndex + 1);
+    }
+  };
+
   return (
     <div
       className="mt-[3.6rem] bg-[#66B51233] pb-14 pt-[1.31rem] text-center"
       style={{ color: Color.PrimaryText }}
     >
       <Title text="Cơ chế" />
-      <b className="pt-2 text-[18px]">
-        TÊN SẢN PHẨM: COUNCIL® COMPLETE 300 SC
-      </b>
-      <div className="flex justify-center">
-        <div className="max-w-lg">
-          <Carousel>
-            {/* {[...lstImg.map((s) => <img src={s} />)]} */}
-            {[
-              ...listItems.map((x, i) => (
-                // <img src={x.SrcImg_L} alt={`srcImg-L-${i}`} />
-                <div key={`div-Carousel-Item-${i}`}>
-                  <CarouselItem
-                    item={x}
-                    index={i}
-                    key={`Carousel-Item-${i}`}
-                    active={currentCarouselIndex == i}
-                    currentIndex={currentCarouselIndex}
-                  />
-                </div>
-              )),
-            ]}
-          </Carousel>
-        </div>
+      <div className="mt-[0.5rem] text-[18px]">
+        <b>TÊN SẢN PHẨM: COUNCIL® COMPLETE 300 SC</b>
       </div>
-
-      {/* <div className="relative z-10 mt-8 flex min-h-[333px] justify-center bg-red-500">
-        <div className="left-50 absolute top-0 ">
-          <div className="overflow-hodden relative">
-            <div className="">
-              {listItems?.map((x, i) => (
-                <CarouselItem
-                  item={x}
-                  index={i}
-                  key={`Carousel-Item-${i}`}
-                  active={currentCarouselIndex == i}
-                  currentIndex={currentCarouselIndex}
-                />
-              ))}
+      <div className="mt-[2rem] flex justify-center">
+        <div className="flex flex-col">
+          <div className="flex items-center justify-center gap-[1.8rem]">
+            <div onClick={prev}>
+              <CarouselLeftBtn />
             </div>
-
-            <div className="absolute -left-[94px] top-1/2 -translate-y-1/2">
-              <CarouselLeftBtn
-                onClick={() => {
-                  if (currentCarouselIndex > 0) {
-                    setCurrentCarouselIndex(currentCarouselIndex - 1);
-                  }
-                }}
-              />
+            <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
+              <Item_1_L />
             </div>
-
-            <div className="absolute -right-[94px] top-1/2 -translate-y-1/2">
-              <CarouselRightBtn
-                onClick={() => {
-                  if (currentCarouselIndex < listItems.length - 1) {
-                    setCurrentCarouselIndex(currentCarouselIndex + 1);
-                  }
-                }}
-              />
-            </div>
-
-            <div className="absolute -bottom-[67px] flex w-full justify-center gap-[24px]">
-              {Array(listItems?.length || 0)
-                .fill()
-                .map((x, i) => i)
-                .map((num) => (
-                  <Indicator active={num == currentCarouselIndex} />
-                ))}
+            <div onClick={next}>
+              <CarouselRightBtn />
             </div>
           </div>
+          <div className="mt-[3.25rem] flex justify-center gap-[1rem]">
+            {listItems?.map((x, i) => (
+              <Indicator
+                active={currentCarouselIndex == i}
+                onClick={() => setCurrentCarouselIndex(i)}
+              />
+            ))}
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
 
 export default Mechanism;
-const CarouselItem = ({ item, index, active, currentIndex }) => {
-  return (
-    // <div
-    //   className={`flex transform gap-[24px] transition-transform duration-300 ${
-    //     active ? "translate-x-0" : "-z-[50]  "
-    //   } ${currentIndex < index ? "-translate-x-full" : "translate-x-full"}`}
-    // >
-    <div className="flex gap-[24px]">
-      <span>
-        <img src={item.SrcImg_L} alt={`srcImg-L-${index}`} />
-      </span>
-      <span>
-        <img src={item.SrcImg_R} alt={`srcImg-R-${index}`} />
-      </span>
-    </div>
-  );
-};
 
 const CarouselRightBtn = (props) => {
   const { onClick } = props;
@@ -172,17 +129,86 @@ const CarouselLeftBtn = (props) => {
   );
 };
 
-const Indicator = ({ active }) => {
-  const style = {
-    width: 20,
-    height: 15,
-    clipPath: `polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)`,
-    backgroundColor: active ? "#624963" : "#D0C9D1",
-  };
-  return <div style={style}></div>;
+const Indicator = ({ active, onClick }) => {
+  return (
+    <div
+      onClick={onClick}
+      style={{
+        ...trans,
+        width: 20,
+        height: 15,
+        clipPath: `polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)`,
+        backgroundColor: active ? "#624963" : "#D0C9D1",
+      }}
+    />
+  );
 };
 
-const Carousel = ({
+const MainFrame_1 = ({ textL, textR }) => {
+  return (
+    <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
+      <MainFrameSide text={textL} />
+      <MainFrameSide text={textR} />
+    </div>
+  );
+};
+const MainFrame_2 = ({ textL, textR }) => {
+  return (
+    <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
+      <MainFrameSide text={textL} />
+      <MainFrameSide text={textR} />
+    </div>
+  );
+};
+
+const MainFrameSide = ({ children }) => {
+  return (
+    <div className="h-[16.625rem] w-[29.125rem] border border-[#FF3162] bg-white">
+      {children}
+    </div>
+  );
+};
+
+const Item_1_L = () => {
+  return (
+    <MainFrameSide>
+      <div className="relative h-full w-full">
+        <div
+          className="absolute right-0 top-0 h-full w-[15rem] scale-[1.01] bg-[#44324780]"
+          style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)" }}
+        />
+        <div
+          className="absolute right-0 top-0 flex h-full w-[16.3125rem] scale-[1.01] items-center justify-end bg-[#443247cc]"
+          style={{ clipPath: "polygon(22% 0, 100% 0, 100% 100%, 0% 100%)" }}
+        >
+          <b className="mr-[3.62rem] text-[1.25rem] text-white">HOẠT CHẤT</b>
+        </div>
+        <div
+          className="absolute right-0 top-0 h-full w-[17.310rem] scale-[1.01] bg-[#FF3162]"
+          style={{ clipPath: "polygon(31% 0, 31.5% 0, 0.5% 100%, 0% 100%)" }}
+        />
+
+        <div
+          className="absolute left-0 top-0 flex h-full w-[16rem] flex-col justify-center gap-[1.13rem] ps-[0.87rem] text-left text-[1.125rem]"
+          style={{ clipPath: "polygon(0% 0, 100% 0, 70% 100%, 0% 100%)" }}
+        >
+          <span>
+            100g triafamone <br /> (Suffonanilides, <b>HRAC 2</b>)
+          </span>
+          <span>
+            200g tefuryltrione <br /> (Triketones, <b>HRAC 27</b>)
+          </span>
+        </div>
+      </div>
+    </MainFrameSide>
+  );
+};
+
+const Carousel = () => {
+  return <div className="h-[16.625rem] w-[59.75rem]"></div>;
+};
+
+const CarouselTest = ({
   children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
@@ -206,7 +232,7 @@ const Carousel = ({
       <div onClick={prev}>
         <CarouselLeftBtn />
       </div>
-      <div className="relative  overflow-hidden">
+      <div className="relative overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${curr * 100}%)` }}

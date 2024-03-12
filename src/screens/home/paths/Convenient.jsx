@@ -20,38 +20,6 @@ const Convenient = (props) => {
             nước vào. Giảm 50% thời gian phun và 50% lượng nước phun.
           </span>
         </div>
-        {/* <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-4 lg:grid-cols-6 lg:px-20">
-          <div className="hidden lg:inline"></div>
-          <div className="md:col-span-2">
-            <img
-              src={Convenient_PhunToePng}
-              alt="Tiện lợi - Phun toé"
-              className="w-full"
-            />
-            <ConvenientShape1
-              text="Phun Toé"
-              textFill="white"
-              textClassName="font-bold"
-              shapeFill="#2B6636"
-              shapeClassName="w-1/3"
-            />
-          </div>
-          <div className="md:col-span-2">
-            <img
-              src={Convenient_PhunThuongPng}
-              alt="Tiện lợi - Phun thường"
-              className="w-full"
-            />
-            <ConvenientShape1
-              text="Phun Thường"
-              textFill="white"
-              textClassName="font-bold"
-              shapeFill="#D30F4B"
-              shapeClassName="w-1/3"
-            />
-          </div>
-          <div className="hidden lg:inline"></div>
-        </div> */}
       </div>
 
       <div className="flex items-center justify-center gap-[1.5rem] max-md:flex-col">

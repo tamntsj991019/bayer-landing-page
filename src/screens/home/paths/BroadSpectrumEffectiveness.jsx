@@ -36,7 +36,6 @@ const BroadSpectrumEffectiveness = (props) => {
               <svg
                 className="h-auto"
                 width="100%"
-                // width="257"
                 height="142"
                 viewBox="0 0 257 142"
                 fill="none"
