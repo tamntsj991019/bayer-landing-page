@@ -28,6 +28,12 @@ const MenuItemDropdown = (props) => {
   };
   useClickOutside(clickOutsideRef);
 
+  const iconColor = openMenu
+    ? Color.PinkPrimary_Menu
+    : hover
+      ? Color.GreenPrimary_Menu
+      : "white";
+
   return (
     <div className="relative hidden h-full w-[3.75rem] items-center justify-center text-[22px] max-md:flex">
       <div
@@ -37,22 +43,14 @@ const MenuItemDropdown = (props) => {
         onClick={() => setOpenMenu(!openMenu)}
         style={{
           ...commonStyle,
-          borderColor: openMenu
-            ? Color.PinkPrimary_Menu
-            : hover
-              ? Color.GreenPrimary_Menu
-              : "white",
+          borderColor: iconColor,
         }}
       >
         <i
           className="fa-solid fa-bars "
           style={{
             ...commonStyle,
-            color: openMenu
-              ? Color.PinkPrimary_Menu
-              : hover
-                ? Color.GreenPrimary_Menu
-                : "white",
+            color: iconColor,
           }}
         />
       </div>
