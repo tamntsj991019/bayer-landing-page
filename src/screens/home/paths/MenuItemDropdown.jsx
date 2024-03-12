@@ -37,14 +37,22 @@ const MenuItemDropdown = (props) => {
         onClick={() => setOpenMenu(!openMenu)}
         style={{
           ...commonStyle,
-          borderColor: hover ? Color.GreenPrimary_Menu : "white",
+          borderColor: openMenu
+            ? Color.PinkPrimary_Menu
+            : hover
+              ? Color.GreenPrimary_Menu
+              : "white",
         }}
       >
         <i
           className="fa-solid fa-bars "
           style={{
             ...commonStyle,
-            color: hover ? Color.GreenPrimary_Menu : "white",
+            color: openMenu
+              ? Color.PinkPrimary_Menu
+              : hover
+                ? Color.GreenPrimary_Menu
+                : "white",
           }}
         />
       </div>
@@ -70,7 +78,7 @@ const MenuItemDropdown = (props) => {
             onMouseLeave={() => setHoverMenu(i)}
             style={{
               ...commonStyle,
-              backgroundColor: hoverMenu == i ? Color.GreenPrimary_Menu : "",
+              backgroundColor: hoverMenu == i ? Color.PinkPrimary_Menu : "",
               cursor: "pointer",
             }}
           >
