@@ -1,6 +1,18 @@
-import BSE_1 from "./BSE_1.png";
-import BSE_2 from "./BSE_2.png";
-import BSE_3 from "./BSE_3.png";
+import BSE_1a from "./BSE_1a.png";
+import BSE_1b from "./BSE_1b.png";
+import BSE_1c from "./BSE_1c.png";
+
+import BSE_2a from "./BSE_2a.png";
+import BSE_2b from "./BSE_2b.png";
+import BSE_2c from "./BSE_2c.png";
+import BSE_2d from "./BSE_2d.png";
+
+import BSE_3a from "./BSE_3a.png";
+import BSE_3b from "./BSE_3b.png";
+import BSE_3c from "./BSE_3c.png";
+
+import BSE_4a from "./BSE_4a.png";
+import BSE_4b from "./BSE_4b.png";
 
 import Convenient_PhunThuongPng from "./Convenient_PhunThuongPng.png";
 import Convenient_PhunToePng from "./Convenient_PhunToePng.png";
@@ -25,9 +37,18 @@ import NWU_5 from "./NWU_5.png";
 import NWU_6 from "./NWU_6.png";
 
 export {
-  BSE_1,
-  BSE_2,
-  BSE_3,
+  BSE_1a,
+  BSE_1b,
+  BSE_1c,
+  BSE_2a,
+  BSE_2b,
+  BSE_2c,
+  BSE_2d,
+  BSE_3a,
+  BSE_3b,
+  BSE_3c,
+  BSE_4a,
+  BSE_4b,
   Convenient_PhunThuongPng,
   Convenient_PhunToePng,
   Mechanism_1_L,
