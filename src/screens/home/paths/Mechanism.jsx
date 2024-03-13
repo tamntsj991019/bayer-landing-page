@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import { Color } from "../../../utils/contanst";
-import { RightArrow } from "../../../components";
+import { ReadHtmlRaw, RightArrow } from "../../../components";
 import {
   Mechanism_1_L,
   Mechanism_1_R,
@@ -16,27 +16,35 @@ const trans = {
 const Mechanism = (props) => {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
-  const listItems = [
+  const listText = [
     {
-      SrcImg_L: Mechanism_1_L,
-      SrcImg_R: Mechanism_1_R,
+      titleL: "HOẠT CHẤT",
+      textL:
+        "100g triafamone <br /> (Suffonanilides, <b>HRAC 2</b>) <br /><br /> 200g tefuryltrione <br /> (Triketones, <b>HRAC 27</b>)",
+      titleR: "CƠ CHẾ HOẠT ĐỘNG",
+      textR:
+        "Kết hợp 2 tác động diệt cỏ ALS và HPPD giúp phát huy tối đa hiệu quả. <br /> Hoạt chất được hấp thụ qua lá, rễ. Cỏ lập tức ngừng tăng trưởng, không tổng hợp được sắc tố, lá dần chuyển sang màu trắng và chết hẳn.",
+      frameType: 1,
     },
     {
-      SrcImg_L: Mechanism_2_L,
-      SrcImg_R: Mechanism_2_R,
+      titleL: "PHỔ DIỆT CỎ",
+      textL:
+        "Là thuốc diệt cỏ lúa chọn lọc, hậu nảy mầm, phổ rộng, hiệu quả vượt trội trên nhiều loại cỏ lúa quan trọng kể cả các loại cỏ khó trị như chác lác, lồng vực, đuôi phụng.",
+      titleR: "THỜI ĐIỂM PHUN",
+      textR: "Phun tóe 7 - 9 ngày sau sạ, sau khi lấy nước lần đầu.",
+      frameType: 2,
     },
   ];
-  const lstImg = [Mechanism_1_L, Mechanism_1_R, Mechanism_2_L, Mechanism_2_R];
 
   const prev = () => {
     if (currentCarouselIndex == 0) {
-      setCurrentCarouselIndex(listItems.length - 1);
+      setCurrentCarouselIndex(listText.length - 1);
     } else {
       setCurrentCarouselIndex(currentCarouselIndex - 1);
     }
   };
   const next = () => {
-    if (currentCarouselIndex == listItems.length - 1) {
+    if (currentCarouselIndex == listText.length - 1) {
       setCurrentCarouselIndex(0);
     } else {
       setCurrentCarouselIndex(currentCarouselIndex + 1);
@@ -55,24 +63,34 @@ const Mechanism = (props) => {
       <div className="mt-[2rem] flex justify-center">
         <div className="flex flex-col">
           <div className="flex items-center justify-center gap-[1.8rem]">
-            <div onClick={prev}>
-              <CarouselLeftBtn />
+            {listText.length > 1 && <CarouselLeftBtn onClick={prev} />}
+            <div className="flex h-[16.625rem] w-[59.75rem] justify-between overflow-hidden">
+              <span
+                className="flex"
+                style={{
+                  ...trans,
+                  transform: `translateX(-${currentCarouselIndex * (100 / listText.length || 1)}%)`,
+                }}
+              >
+                {listText?.map((x, i) => (
+                  <MainFramFilter key={i} data={x} />
+                ))}
+              </span>
             </div>
-            <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
-              <Item_1_L />
-            </div>
-            <div onClick={next}>
-              <CarouselRightBtn />
-            </div>
+            {listText.length > 1 && <CarouselRightBtn onClick={next} />}
           </div>
-          <div className="mt-[3.25rem] flex justify-center gap-[1rem]">
-            {listItems?.map((x, i) => (
-              <Indicator
-                active={currentCarouselIndex == i}
-                onClick={() => setCurrentCarouselIndex(i)}
-              />
-            ))}
-          </div>
+
+          {listText.length > 1 && (
+            <div className="mt-[3.25rem] flex justify-center gap-[1rem]">
+              {listText?.map((x, i) => (
+                <Indicator
+                  key={i}
+                  active={currentCarouselIndex == i}
+                  onClick={() => setCurrentCarouselIndex(i)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -144,19 +162,33 @@ const Indicator = ({ active, onClick }) => {
   );
 };
 
-const MainFrame_1 = ({ textL, textR }) => {
-  return (
-    <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
-      <MainFrameSide text={textL} />
-      <MainFrameSide text={textR} />
-    </div>
-  );
+const MainFramFilter = ({ data }) => {
+  switch (data.frameType) {
+    case 1:
+      return (
+        <MainFrame>
+          <Item_1_L title={data.titleL} text={data.textL} />
+          <Item_1_R title={data.titleR} text={data.textR} />
+        </MainFrame>
+      );
+    case 2:
+      return (
+        <MainFrame>
+          <Item_2_L title={data.titleL} text={data.textL} />
+          <Item_2_R title={data.titleR} text={data.textR} />
+        </MainFrame>
+      );
+    default:
+      return <></>;
+  }
 };
-const MainFrame_2 = ({ textL, textR }) => {
+
+const MainFrame = ({ children }) => {
   return (
-    <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
-      <MainFrameSide text={textL} />
-      <MainFrameSide text={textR} />
+    <div>
+      <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
+        {children}
+      </div>
     </div>
   );
 };
@@ -169,7 +201,7 @@ const MainFrameSide = ({ children }) => {
   );
 };
 
-const Item_1_L = () => {
+const Item_1_L = ({ title, text }) => {
   return (
     <MainFrameSide>
       <div className="relative h-full w-full">
@@ -181,7 +213,9 @@ const Item_1_L = () => {
           className="absolute right-0 top-0 flex h-full w-[16.3125rem] scale-[1.01] items-center justify-end bg-[#443247cc]"
           style={{ clipPath: "polygon(22% 0, 100% 0, 100% 100%, 0% 100%)" }}
         >
-          <b className="mr-[3.62rem] text-[1.25rem] text-white">HOẠT CHẤT</b>
+          <b className="mr-[3.62rem] text-wrap text-[1.25rem] text-white">
+            <ReadHtmlRaw html={title} />
+          </b>
         </div>
         <div
           className="absolute right-0 top-0 h-full w-[17.310rem] scale-[1.01] bg-[#FF3162]"
@@ -193,10 +227,7 @@ const Item_1_L = () => {
           style={{ clipPath: "polygon(0% 0, 100% 0, 70% 100%, 0% 100%)" }}
         >
           <span>
-            100g triafamone <br /> (Suffonanilides, <b>HRAC 2</b>)
-          </span>
-          <span>
-            200g tefuryltrione <br /> (Triketones, <b>HRAC 27</b>)
+            <ReadHtmlRaw html={text} />
           </span>
         </div>
       </div>
@@ -204,59 +235,104 @@ const Item_1_L = () => {
   );
 };
 
-const Carousel = () => {
-  return <div className="h-[16.625rem] w-[59.75rem]"></div>;
-};
-
-const CarouselTest = ({
-  children: slides,
-  autoSlide = false,
-  autoSlideInterval = 3000,
-}) => {
-  const [curr, setCurr] = useState(0);
-
-  const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
-
-  const next = () =>
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
-
-  useEffect(() => {
-    if (!autoSlide) return;
-    const slideInterval = setInterval(next, autoSlideInterval);
-    return () => clearInterval(slideInterval);
-  }, []);
-
+const Item_1_R = ({ title, text }) => {
   return (
-    <div className="flex">
-      <div onClick={prev}>
-        <CarouselLeftBtn />
-      </div>
-      <div className="relative overflow-hidden">
+    <MainFrameSide>
+      <div className="relative h-full w-full">
         <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${curr * 100}%)` }}
+          className="absolute left-0 top-0 h-full w-[10.9645rem] scale-[1.01] bg-[#24A0E380]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0% 100%)" }}
+        />
+        <div
+          className="absolute left-0 top-0 flex h-full w-[11.962rem] scale-[1.01] items-center justify-end bg-[#24A0E3cc]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 75% 100%, 0% 100%)" }}
         >
-          {slides}
+          <b className=" mr-[2.27rem] text-wrap ps-[1.25rem] text-start text-[1.25rem] text-white">
+            <ReadHtmlRaw html={title} />
+          </b>
+        </div>
+        <div
+          className="absolute left-0 top-0 h-full w-[13.065rem] scale-[1.01] bg-[#FF3162]"
+          style={{ clipPath: "polygon(99.5% 0, 100% 0, 60% 100%, 59.5% 100%)" }}
+        />
+
+        <div
+          className="absolute right-0 top-0 flex h-full w-[18rem] flex-col justify-center px-[1rem] text-left text-[1.125rem]"
+          style={{ clipPath: "" }}
+        >
+          <span>
+            <ReadHtmlRaw html={text} />
+          </span>
         </div>
       </div>
+    </MainFrameSide>
+  );
+};
 
-      <div onClick={next}>
-        <CarouselRightBtn />
+const Item_2_L = ({ title, text }) => {
+  return (
+    <MainFrameSide>
+      <div className="relative h-full w-full">
+        <div
+          className="absolute right-0 top-0 h-full w-[11.28125rem] scale-[1.01] bg-[#44324780]"
+          style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)" }}
+        />
+        <div
+          className="absolute right-0 top-0 flex h-full w-[12.5rem] scale-[1.01] items-center justify-end bg-[#443247cc]"
+          style={{ clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)" }}
+        >
+          <b className="ml-[2.6rem] mr-[1rem] text-wrap text-[1.25rem] text-white">
+            <ReadHtmlRaw html={title} />
+          </b>
+        </div>
+        <div
+          className="absolute right-0 top-0 h-full w-[13.5rem] scale-[1.01] bg-[#FF3162]"
+          style={{ clipPath: "polygon(45% 0, 45.5% 0, 0.5% 100%, 0% 100%)" }}
+        />
+
+        <div
+          className="absolute left-0 top-0 flex h-full w-[16rem] flex-col justify-center gap-[1.13rem] ps-[0.87rem] text-left text-[1.125rem]"
+          style={{ clipPath: "" }}
+        >
+          <span>
+            <ReadHtmlRaw html={text} />
+          </span>
+        </div>
       </div>
-      {/* <div className=" inset-0 flex items-center justify-between p-4"></div> */}
-      {/* <div className=" bottom-4 right-0 left-0">
-				<div className="flex items-center justify-center gap-2">
-					{slides.map((s, i) => (
-						<div
-							key={i}
-							className={`transition-all w-1.5 h-1.5 bg-white rounded-full  ${
-								curr === i ? "p-0.5" : "bg-opacity-50"
-							}`}
-						/>
-					))}
-				</div>
-			</div> */}
-    </div>
+    </MainFrameSide>
+  );
+};
+
+const Item_2_R = ({ title, text }) => {
+  return (
+    <MainFrameSide>
+      <div className="relative h-full w-full">
+        <div
+          className="absolute left-0 top-0 h-full w-[10.9645rem] scale-[1.01] bg-[#24A0E380]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 90% 100%, 0% 100%)" }}
+        />
+        <div
+          className="absolute left-0 top-0 flex h-full w-[11.962rem] scale-[1.01] items-center justify-end bg-[#24A0E3cc]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 75% 100%, 0% 100%)" }}
+        >
+          <b className=" mr-[2.27rem] text-wrap ps-[1.25rem] text-start text-[1.25rem] text-white">
+            <ReadHtmlRaw html={title} />
+          </b>
+        </div>
+        <div
+          className="absolute left-0 top-0 h-full w-[13.065rem] scale-[1.01] bg-[#FF3162]"
+          style={{ clipPath: "polygon(99.5% 0, 100% 0, 60% 100%, 59.5% 100%)" }}
+        />
+
+        <div
+          className="absolute right-0 top-0 flex h-full w-[16rem] flex-col justify-center gap-[1.13rem] ps-[0.87rem] text-left text-[1.125rem]"
+          style={{ clipPath: "" }}
+        >
+          <span>
+            <ReadHtmlRaw html={text} />
+          </span>
+        </div>
+      </div>
+    </MainFrameSide>
   );
 };
