@@ -53,11 +53,7 @@ const Mechanism = (props) => {
       setCurrentCarouselIndex(currentCarouselIndex + 1);
     }
   };
-  console.log(window.innerWidth);
-  let wrapperCss = [
-    "flex w-[29.125rem] overflow-hidden max-xl:flex-col xl:h-[16.625rem] xl:w-[59.75rem] xl:justify-between",
-    `max-xl:-translate-x-[${currentCarouselIndex * 100}%]`,
-  ];
+
   return (
     <div
       className="mt-[3.6rem] bg-[#66B51233] pb-14 pt-[1.31rem] text-center"
@@ -67,7 +63,7 @@ const Mechanism = (props) => {
       <div className="mt-[0.5rem] text-[18px]">
         <b>TÊN SẢN PHẨM: COUNCIL® COMPLETE 300 SC</b>
       </div>
-      <div className="mt-[2rem] flex justify-center">
+      <div className="mt-[2rem] flex justify-center max-sm:scale-75">
         <div className="flex flex-col">
           <div className="flex items-center justify-center gap-[1.8rem]">
             {listText.length > 1 && (
@@ -75,7 +71,7 @@ const Mechanism = (props) => {
                 <CarouselLeftBtn onClick={prev} />
               </span>
             )}
-            <div className={wrapperCss.join(" ")}>
+            <div className="flex w-[29.125rem] overflow-hidden max-xl:flex-col xl:h-[16.625rem] xl:w-[59.75rem] xl:justify-between">
               <span
                 className="flex"
                 style={{
