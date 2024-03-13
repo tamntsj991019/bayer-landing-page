@@ -15,7 +15,10 @@ const trans = {
 };
 const Mechanism = (props) => {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
-
+  const [widthScreen, setWidthScreen] = useState(0);
+  useEffect(() => {
+    setWidthScreen(window.innerWidth);
+  }, [window.innerWidth]);
   const listText = [
     {
       titleL: "HOẠT CHẤT",
@@ -50,7 +53,11 @@ const Mechanism = (props) => {
       setCurrentCarouselIndex(currentCarouselIndex + 1);
     }
   };
-
+  console.log(window.innerWidth);
+  let wrapperCss = [
+    "flex w-[29.125rem] overflow-hidden max-xl:flex-col xl:h-[16.625rem] xl:w-[59.75rem] xl:justify-between",
+    `max-xl:-translate-x-[${currentCarouselIndex * 100}%]`,
+  ];
   return (
     <div
       className="mt-[3.6rem] bg-[#66B51233] pb-14 pt-[1.31rem] text-center"
@@ -63,13 +70,20 @@ const Mechanism = (props) => {
       <div className="mt-[2rem] flex justify-center">
         <div className="flex flex-col">
           <div className="flex items-center justify-center gap-[1.8rem]">
-            {listText.length > 1 && <CarouselLeftBtn onClick={prev} />}
-            <div className="flex h-[16.625rem] w-[59.75rem] justify-between overflow-hidden">
+            {listText.length > 1 && (
+              <span className="max-md:hidden">
+                <CarouselLeftBtn onClick={prev} />
+              </span>
+            )}
+            <div className={wrapperCss.join(" ")}>
               <span
                 className="flex"
                 style={{
                   ...trans,
-                  transform: `translateX(-${currentCarouselIndex * (100 / listText.length || 1)}%)`,
+                  transform:
+                    widthScreen > 1280
+                      ? `translateX(-${currentCarouselIndex * (100 / listText?.length || 1)}%)`
+                      : `translateX(-${currentCarouselIndex * 100}%)`,
                 }}
               >
                 {listText?.map((x, i) => (
@@ -77,7 +91,11 @@ const Mechanism = (props) => {
                 ))}
               </span>
             </div>
-            {listText.length > 1 && <CarouselRightBtn onClick={next} />}
+            {listText.length > 1 && (
+              <span className="max-md:hidden">
+                <CarouselRightBtn onClick={next} />
+              </span>
+            )}
           </div>
 
           {listText.length > 1 && (
@@ -186,7 +204,7 @@ const MainFramFilter = ({ data }) => {
 const MainFrame = ({ children }) => {
   return (
     <div>
-      <div className="flex h-[16.625rem] w-[59.75rem] justify-between">
+      <div className="flex w-[29.125rem] overflow-hidden max-xl:flex-col max-xl:gap-[1.5rem] xl:h-[16.625rem] xl:w-[59.75rem] xl:justify-between">
         {children}
       </div>
     </div>
