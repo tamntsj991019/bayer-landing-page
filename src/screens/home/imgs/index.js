@@ -36,6 +36,8 @@ import NWU_4 from "./NWU_4.png";
 import NWU_5 from "./NWU_5.png";
 import NWU_6 from "./NWU_6.png";
 
+import ScrollTop from "./ScrollTop.png";
+
 export {
   BSE_1a,
   BSE_1b,
@@ -67,4 +69,5 @@ export {
   NWU_4,
   NWU_5,
   NWU_6,
+  ScrollTop,
 };
