@@ -54,7 +54,7 @@ const Footer = (props) => {
                 />
                 <SocialIconFooter
                   iconFA="fa-brands fa-youtube"
-                  url="https://www.youtube.com/user/bayercropscienceviet"
+                  url="https://www.youtube.com/watch?v=WN23VVBwLs4"
                 />
               </div>
             </div>
